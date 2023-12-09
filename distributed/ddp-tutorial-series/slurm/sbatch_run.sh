@@ -11,4 +11,4 @@ head_node_ips=$(srun --nodes=1 --ntasks=1 -w "$head_node" hostname --all-ip-addr
 head_node_ips_array=($head_node_ips)
 head_node_ip=${head_node_ips_array[0]}
 
-srun -l --ntasks-per-node=1 "slurm/torchrun.sh $head_node_ip"
+srun -l --ntasks-per-node=1 slurm/torchrun.sh $head_node_ip
