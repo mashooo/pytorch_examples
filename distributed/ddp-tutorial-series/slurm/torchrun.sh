@@ -10,5 +10,5 @@ torchrun \
 --nnodes=2 \
 --nproc_per_node=$SLURM_GPUS_ON_NODE \
 --node_rank=$SLURM_NODEID \
---master_addr=10.10.0.101 --master_port=7657 \
+--master_addr=$1 --master_port=7657 \
 multinode.py 50000 10
