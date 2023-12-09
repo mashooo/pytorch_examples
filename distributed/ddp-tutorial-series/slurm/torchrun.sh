@@ -11,4 +11,4 @@ torchrun \
 --nproc_per_node 1 \
 --node_rank=$SLURM_NODEID \
 --master_addr=$1 --master_port=7657 \
-/shared/examples/multinode_torchrun.py 50 10
+multinode_torchrun.py 50 10
