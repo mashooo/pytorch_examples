@@ -22,6 +22,5 @@ export LOGLEVEL=INFO
 srun torchrun \
 --nnodes 2 \
 --nproc_per_node 1 \
---node_rank=$SLURM_NODEID \
 --master_addr=$head_node_ip --master_port=7657 \
 /shared/examples/multinode_torchrun.py 50 10
