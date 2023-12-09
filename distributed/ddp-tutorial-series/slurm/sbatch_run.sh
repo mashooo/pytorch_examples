@@ -13,6 +13,9 @@ head_node_ips=$(srun --nodes=1 --ntasks=1 -w "$head_node" hostname --all-ip-addr
 head_node_ips_array=($head_node_ips)
 head_node_ip=${head_node_ips_array[0]}
 
+soruce /opt/anaconda3/etc/profile.d/conda.sh
+conda activate qlin
+
 echo Node IP: $head_node_ip
 export LOGLEVEL=INFO
 
