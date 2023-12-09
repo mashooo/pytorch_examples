@@ -8,4 +8,4 @@
 
 #SBATCH --chdir=/home/nml-user/data/pytorch_examples/distributed/ddp-tutorial-series
 
-srun -l --ntask-per-node=1 slurm/torchrun.sh
+srun -l --ntasks-per-node=1 slurm/torchrun.sh
