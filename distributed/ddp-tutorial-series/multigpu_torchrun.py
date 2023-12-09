@@ -93,10 +93,15 @@ def prepare_dataloader(dataset: Dataset, batch_size: int):
 
 def main(save_every: int, total_epochs: int, batch_size: int, snapshot_path: str = "snapshot.pt"):
     ddp_setup()
+    print("ddp_setup")
     dataset, model, optimizer = load_train_objs()
+    print("dataset loaded")
     train_data = prepare_dataloader(dataset, batch_size)
+    print("dataloader")
     trainer = Trainer(model, train_data, optimizer, save_every, snapshot_path)
+    print("before_train")
     trainer.train(total_epochs)
+    print("trained")
     destroy_process_group()
 
 
@@ -107,5 +112,5 @@ if __name__ == "__main__":
     parser.add_argument('save_every', type=int, help='How often to save a snapshot')
     parser.add_argument('--batch_size', default=32, type=int, help='Input batch size on each device (default: 32)')
     args = parser.parse_args()
-    
+
     main(args.save_every, args.total_epochs, args.batch_size)
