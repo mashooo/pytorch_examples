@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=multinode-example
-#SBATCH --exclusive --nodes=2 --ntasks-per-node=1 --gpus=2
+#SBATCH --exclusive --nodes=2 --ntasks-per-node=1 --gpus=7
 #SBATCH --chdir=/home/nml-user/data/pytorch_examples/distributed/ddp-tutorial-series
 
 nodes=( $( scontrol show hostnames $SLURM_JOB_NODELIST ) )
